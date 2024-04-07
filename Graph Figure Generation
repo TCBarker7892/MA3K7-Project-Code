@@ -1,0 +1,47 @@
+import igraph as ig
+from IPython.display import display
+
+basis1 = ig.Graph(n=4, edges=[[0,1], [0,2], [0,3]])
+layout1 = basis1.layout('kamada_kawai')
+Graph1 = ig.plot(basis1, layout=layout1, vertex_size=50, margin=180)
+display(Graph1)
+
+basis2 = ig.Graph(n=5, edges=[[0,1], [1,2], [2,3], [3,4]])
+layout2 = basis2.layout('kamada_kawai')
+Graph2 = ig.plot(basis2, layout=layout2, vertex_size=50, margin=120)
+display(Graph2)
+
+basis3 = ig.Graph(n=5, edges=[[0,1], [1,2], [2,3], [3,4], [1,3]])
+layout3 = basis3.layout('kamada_kawai')
+Graph3 = ig.plot(basis3, layout=layout3, vertex_size=50, margin=120)
+display(Graph3)
+
+basis4 = ig.Graph(n=6, edges=[[0,1], [1,2], [2,3], [3,4], [4,5], [5,0]])
+layout4 = basis4.layout('kamada_kawai')
+Graph4 = ig.plot(basis4, layout=layout4, vertex_size=50, margin=120)
+display(Graph4)
+
+basis5 = ig.Graph(n=5, edges=[[0,1], [1,2], [2,3], [3,0], [1,4]])
+layout5 = basis5.layout('kamada_kawai')
+Graph5 = ig.plot(basis5, layout=layout5, vertex_size=50, margin=120)
+display(Graph5)
+
+comp1 = ig.Graph(n=2, edges=[[0,1]])
+layoutComp1 = comp1.layout('kamada_kawai')
+subGraph1 = ig.plot(comp1, layout=layoutComp1, vertex_size=150, margin=80, vertex_label=["V1","U1"], vertex_label_size=40)
+display(subGraph1)
+
+comp2 = ig.Graph(n=3, edges=[[0,1], [1,2]])
+layoutComp2 = comp2.layout('kamada_kawai')
+subGraph2 = ig.plot(comp2, layout=layoutComp2, vertex_size=150, margin=80, vertex_label=["V2", "U2", "V3"], vertex_label_size=40)
+display(subGraph2)
+
+comp3 = ig.Graph(n=3, edges=[[0,1], [1,2]])
+layoutComp3 = comp3.layout('kamada_kawai')
+subGraph3 = ig.plot(comp3, layout=layoutComp3, vertex_size=150, margin=80, vertex_label=["V1", "U1", "V2"], vertex_label_size=40)
+display(subGraph3)
+
+comp4 = ig.Graph(n=2, edges=[[0,1]])
+layoutComp4 = comp4.layout('kamada_kawai')
+subGraph4 = ig.plot(comp4, layout=layoutComp4, vertex_size=150, margin=80, vertex_label=["V3","U2"], vertex_label_size=40)
+display(subGraph4)
