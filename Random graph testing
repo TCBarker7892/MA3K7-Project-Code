@@ -1,3 +1,8 @@
+import igraph as ig
+import numpy as np
+from IPython.display import display
+from itertools import combinations
+
 def randomConnected(n, p):
     random = ig.Graph.Erdos_Renyi(n, p)
     while (not random.is_connected()):
