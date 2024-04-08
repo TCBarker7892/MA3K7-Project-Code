@@ -1,0 +1,36 @@
+def randomConnected(n, p):
+    random = ig.Graph.Erdos_Renyi(n, p)
+    while (not random.is_connected()):
+        random = ig.Graph.Erdos_Renyi(n, p)
+    return random
+
+def plotGraph(graph):
+    layout = graph.layout('kamada_kawai')
+    Graph = ig.plot(graph, layout=layout)
+    display(Graph)
+
+def checkDisconnectedTriples(graph, n):
+    vertexSet = np.arange(n)
+    allVertexTriples = list(combinations(vertexSet, 3))
+    for set in allVertexTriples:
+        edgeless = False
+        if(not graph.are_connected(set[0], set[1])):
+            if (not graph.are_connected(set[0], set[2])):
+                if (not graph.are_connected(set[1], set[2])):
+                    edgeless = True
+                    break
+    return edgeless
+
+N = 15
+aWinCount = 0
+otherCount = 0
+for i in range(100000):
+    graphObject = randomConnected(N, 0.5)
+    if (checkDisconnectedTriples(graphObject, N)):
+        aWinCount += 1
+    else:
+        otherCount += 1
+        plotGraph(graphObject)
+
+print(aWinCount)
+print(otherCount)
